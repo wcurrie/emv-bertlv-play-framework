@@ -8,6 +8,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava,PlayEbean)
 
 scalaVersion := "2.11.6"
 
+// needed to resolve emv-bertlv 0.1.6-SNAPSHOT until 0.1.6 is released to maven central
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
 libraryDependencies ++= Seq(
@@ -20,8 +21,6 @@ libraryDependencies ++= Seq(
   "io.github.binaryfoo" % "emv-bertlv" % "0.1.6-SNAPSHOT"
 )
 
-// Play provides two styles of routers, one expects its actions to be injected, the
-// other, legacy style, accesses its actions statically.
 routesGenerator := InjectedRoutesGenerator
 
 fork in run := true
